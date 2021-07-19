@@ -1,24 +1,10 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Members Only is a authentication project in the Rails curriculum from The Odin Project. You can learn more about the assignment [here](https://www.theodinproject.com/paths/full-stack-ruby-on-rails/courses/ruby-on-rails/lessons/authentication#your-task-1).
 
-Things you may want to cover:
+In this app, members can write anonymous posts. Only members who are logged into the clubhouse can see the author of a post. Outside the clubhouse the stories are visible but author names are not.
 
-* Ruby version
+* Ruby version: 2.7.2
 
-* System dependencies
+* Rails version: 6.1.4
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
