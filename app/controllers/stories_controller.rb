@@ -20,4 +20,9 @@ class StoriesController < ApplicationController
       render :new
     end
   end
+
+  private
+    def story_params
+      params.require(:story).permit(:title, :body)
+    end
 end
