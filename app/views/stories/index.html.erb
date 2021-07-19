@@ -1,1 +1,9 @@
 <h1>Story Time</h1>
+
+<ul>
+  <% @stories.each do |story| %>
+    <li>
+      <%= story.title %>
+    </li>
+  <% end %>
+</ul>
