@@ -15,7 +15,7 @@ class StoriesController < ApplicationController
     @story = Story.new(story_params)
 
     if @story.save
-      redirect_to @story
+      redirect_to root_path
     else
       render :new
     end
