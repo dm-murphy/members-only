@@ -21,7 +21,7 @@
         <p class="alert"><%= alert %></p>
       </div>
     <% end %>
-    <nav class="navbar is-info">
+    <nav class="navbar is-dark">
       <div class="navbar-brand">
       <%= link_to root_path, class: "navbar-item" do %>
           <h1 class="title is-5">Members Only</h1>
@@ -37,7 +37,7 @@
           <div class="navbar-item">
           <div class="field is-grouped">
             <p class="control">
-              <%= link_to 'New Story', new_story_path, class: "button is-info is-inverted" %>
+              <%= link_to 'New Story', new_story_path, class: "button is-warning" %>
             </p>
             <%# Add in user signed in conditional later %>
             <%# Add in user log in buttons for navbar later %>
