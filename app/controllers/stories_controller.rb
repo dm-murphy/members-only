@@ -12,7 +12,7 @@ class StoriesController < ApplicationController
   end
 
   def create
-    @story = Story.new(title: "...", body: "...")
+    @story = Story.new(story_params)
 
     if @story.save
       redirect_to @story
