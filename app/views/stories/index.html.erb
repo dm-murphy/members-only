@@ -1,11 +1,29 @@
-<h1>Story Time</h1>
-
-<ul>
-  <% @stories.each do |story| %>
-    <li>
-      <%= link_to story.title, story %>
-    </li>
-  <% end %>
-</ul>
-<br />
-<%= link_to "New Story", new_story_path %>
+<section class="section">
+  <div class="container">
+    <div class="columns">
+      <% if user_signed_in? %>
+        <%= render 'profile' %>
+      <% else %>
+        <p>Log in to see your profile</p>
+      <% end %>
+    </div>
+    <div>
+        <h2>Latest Stories</h2>
+        <ul>
+          <% @stories.each do |story| %>
+           <li>
+             <%= link_to story.title, story %>
+           </li>
+           <li>
+             <%= story.user.name %>
+           </li>
+           <li>
+             <%= story.user.username %>
+           </li>
+          <% end %>
+        </ul>
+        <br />
+        <%= link_to "Write your own story", new_story_path %>
+    </div>
+  </div>
+</section>
