@@ -39,8 +39,21 @@
             <p class="control">
               <%= link_to 'New Story', new_story_path, class: "button is-warning" %>
             </p>
-            <%# Add in user signed in conditional later %>
-            <%# Add in user log in buttons for navbar later %>
+            <% if user_signed_in? %>
+              <p class="control">
+                <%= link_to current_user.name, edit_user_registration_path, class: "button is-info" %>
+              </p>
+              <p>
+                <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "button is-info" %>
+              </p>
+            <% else %>
+             <p class="control">
+              <%= link_to 'Sign In', new_user_session_path, class: "button is-info" %>
+            </p>
+            <p class="control">
+              <%= link_to 'Sign Up', new_user_registration_path, class: "button is-info" %>
+            </p>
+            <% end %>
             </div>
           </div>
         </div>
