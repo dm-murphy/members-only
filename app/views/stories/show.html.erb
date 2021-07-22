@@ -2,6 +2,13 @@
 
 <p><%= @story.body %></p>
 
-<p><%= @story.user.name %></p>
-
-<p><%= @story.user.username %></p>
+<% if user_signed_in? %>
+  <li>
+    <%= @story.user.name %>
+  </li>
+  <li>
+    <%= @story.user.username %>
+  </li>
+  <% else %>
+    <p>Log in to see who wrote this story</p>
+  <% end %>

@@ -14,12 +14,17 @@
            <li>
              <%= link_to story.title, story %>
            </li>
-           <li>
-             <%= story.user.name %>
-           </li>
-           <li>
-             <%= story.user.username %>
-           </li>
+           <% if user_signed_in? %>
+             <li>
+               <%= story.user.name %>
+             </li>
+             <li>
+               <%= story.user.username %>
+             </li>
+           <% else %>
+             <p>Log in to see who wrote this story</p>
+           <% end %>
+           
           <% end %>
         </ul>
         <br />
