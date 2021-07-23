@@ -1,24 +1,31 @@
-<br />
-<h1>Share a Story</h1>
-
-<%= form_with model: @story do |form| %>
-  <div>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
-    <% @story.errors.full_messages_for(:title).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
+<div class="section">
+  <div class="container">
+    <div class="columns is-centered is-variable is-6-desktop">
+    <% if user_signed_in? %>
+        <%= render 'profile' %>
+      <% else %>
+        <div class="column is-one-quarter">
+          <p class="panel-heading has-text-centered has-background-dark has-text-white">Writer Profile</p>
+          <div class="panel-block has-background-warning">
+          <p class="panel-heading has-text-centered has-background-warning title is-6">Log in to see profile</p>
+          </div>
+        </div>
+      <% end %>
+      <div class="column is-three-quarters">
+        <h1 class="title">Share a Story</h1>
+          <%= render 'form' %>
+      </div>
+   </div>
+   </div>
   </div>
-
-  <div>
-    <%= form.label :body %><br>
-    <%= form.text_area :body %>
-    <% @story.errors.full_messages_for(:body).each do |message| %>
-      <div><%= message %></div>
-    <% end %>  
+<nav class="navbar is-fixed-bottom">
+  <div class="navbar-menu">
+    <div class="navbar-item">
+      <div class="field is-grouped">
+        <p class="control">
+          <%= link_to 'Reset', new_story_path, class: "button is-dark" %>
+        </p>
+      </div>
+    </div>
   </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+</nav>
