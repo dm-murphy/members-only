@@ -5,10 +5,12 @@
         <% if user_signed_in? %>
           <%= render 'profile' %>
         <% else %>
+        <nav class="panel">
           <p class="panel-heading has-text-centered has-background-dark has-text-white">Writer Profile</p>
           <div class="panel-block has-background-warning">
             <p class="panel-heading has-text-centered has-background-warning title is-6">Log in to see profile</p>
           </div>
+        </nav>
         <% end %>
       
         <p class="panel-heading has-text-centered has-background-dark has-text-white">Latest Stories</p>
@@ -29,14 +31,14 @@
             <p>
               <%= simple_format story.body.gsub("\n", " ") %>
             </p><br/>
-            <p>Written by:</p>
+            <p class="is-italic">Written by:</p>
               <% if user_signed_in? %>
                 <%= story.user.name %>
                 <div class="is-italic">
                   <%= story.user.username %>
                 </div><br/>
               <% else %>
-                <p class="subtitle is-6">Log in to see who wrote this story</p><br/>
+                <p class="has-text-weight-bold is-uppercase">Log in to see author</p><br/>
               <% end %> 
           <% end %>
       </div>
