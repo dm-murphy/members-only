@@ -14,6 +14,9 @@
  *= require_self
  */
 
+$family-monospace: Andale Mono, monospace;
+$family-primary: $family-monospace;
+
  @import "bulma";
 
   .navbar-brand .title {

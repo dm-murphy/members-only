@@ -1,10 +1,10 @@
 <div class="column is-one-quarter">
   <nav class="panel">
-    <p class="panel-heading">Writer Profile</p>
-    <div class="panel-block">
+    <p class="panel-heading has-text-centered has-background-dark has-text-white">Writer Profile</p>
+    <div class="panel-block has-background-warning">
       <article class="media">
         <div class="media-left">
-          <figure class="image is 64-64">
+          <figure class=" image is 64-64">
             <%= gravatar_image_tag(current_user.email, size: 64, alt: current_user.name) %>
           </figure>
         </div>
