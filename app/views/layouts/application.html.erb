@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>MembersOnly</title>
+    <title>Members Only</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -32,31 +32,40 @@
             <span></span>
           </div>
       </div>
+
       <div id="navbarExample" class="navbar-menu">
-        <div class="navbar-end">
+        <div class="navbar-start">
           <div class="navbar-item">
           <div class="field is-grouped">
             <p class="control">
-              <%= link_to 'New Story', new_story_path, class: "button is-warning" %>
+              <%= link_to 'New Story', new_story_path, class: "button is-warning is-rounded" %>
             </p>
+            </div>
+          </div>
+        </div>
+        <div class="navbar-end">
+          <div class="navbar-item">
+          <div class="field is-grouped">
             <% if user_signed_in? %>
               <p class="control">
-                <%= link_to current_user.name, edit_user_registration_path, class: "button is-info" %>
+                <%= link_to current_user.name, edit_user_registration_path, class: "button is-link is-rounded" %>
               </p>
               <p>
-                <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "button is-info" %>
+                <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "button is-link is-rounded" %>
               </p>
             <% else %>
              <p class="control">
-              <%= link_to 'Sign In', new_user_session_path, class: "button is-info" %>
+              <%= link_to 'Sign In', new_user_session_path, class: "button is-link is-rounded" %>
             </p>
             <p class="control">
-              <%= link_to 'Sign Up', new_user_registration_path, class: "button is-info" %>
+              <%= link_to 'Sign Up', new_user_registration_path, class: "button is-link is-rounded" %>
             </p>
             <% end %>
             </div>
           </div>
         </div>
+      </div>
+
     </nav>
     <%= yield %>
   </body>

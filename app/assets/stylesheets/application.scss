@@ -16,16 +16,25 @@
 
  @import "bulma";
 
-
   .navbar-brand .title {
     color: white;
+    font-family: Andale Mono, monospace;
+    text-transform: lowercase;
+  }
+
+  .navbar-start .button {
+    color: 	black;
+    font-weight: bold;
+    font-family: Andale Mono, monospace;
+    text-transform: lowercase;
   }
 
   .navbar-end .button {
-    color: 	#808080;
+    color: 	white;
     font-weight: bold;
+    font-family: Andale Mono, monospace;
+    text-transform: lowercase;
   }
-
 
   .notification:not(:last-child) {
     margin-bottom: 0;
