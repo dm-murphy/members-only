@@ -42,3 +42,10 @@ $family-primary: $family-monospace;
   .notification:not(:last-child) {
     margin-bottom: 0;
   }
+
+  .image {
+    border-radius: 50%;
+    img {
+      border-radius: 50%;
+    }
+  }
