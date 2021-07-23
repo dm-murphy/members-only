@@ -14,28 +14,24 @@
       
       <div class="column is-three-quarters has-background-white-ter">
       <h2 class="has-text-centered title is-3">Latest Stories</h2>
-        <ul>
           <% @stories.each do |story| %>
-           <li>
-             <p class="title is-5">
+             <p class="subtitle is-5">
              <%= link_to story.title, story %>
              </p>
-           </li>
-           <li>
-             <p class="subtitle is-6">Written by:</p>
+             <p>
+             <%= story.body %>
+             </p><br/>
+             <p>Written by:</p>
                 <% if user_signed_in? %>
-                  <li>
-                    <%= story.user.name %>
-                  </li>
-                  <li class="is-italic">
+                  <%= story.user.name %>
+                  <div class="is-italic">
                     <%= story.user.username %>
-                  </li>
+                  </div><br/>
                 <% else %>
-                  <p class="subtitle is-6">Log in to see who wrote this story</p>
-                <% end %>
+                  <p class="subtitle is-6">Log in to see who wrote this story</p><br/>
+                <% end %> 
           <% end %>
-        </ul>
-        <br />
+        
         <%= link_to "Write your own story", new_story_path %>
         </div>
 
