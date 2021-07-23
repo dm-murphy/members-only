@@ -1,41 +1,46 @@
 <section class="section">
   <div class="container">
     <div class="columns is-variable is-6-desktop">
-      <% if user_signed_in? %>
-        <%= render 'profile' %>
-      <% else %>
-        <div class="column is-one-quarter">
+      <div class="column is-one-quarter">
+        <% if user_signed_in? %>
+          <%= render 'profile' %>
+        <% else %>
           <p class="panel-heading has-text-centered has-background-dark has-text-white">Writer Profile</p>
           <div class="panel-block has-background-warning">
-          <p class="panel-heading has-text-centered has-background-warning title is-6">Log in to see profile</p>
+            <p class="panel-heading has-text-centered has-background-warning title is-6">Log in to see profile</p>
           </div>
+        <% end %>
+      
+        <p class="panel-heading has-text-centered has-background-dark has-text-white">Latest Stories</p>
+        <div class="panel-block has-background-warning">
+          <ul>
+            <% @stories.order(created_at: :desc).limit(4).each do |story| %>
+             <li class="is-size-7"><%= link_to story.title, story %></li>
+            <% end %>
         </div>
-      <% end %>
+      </div>
       
       <div class="column is-three-quarters has-background-white-ter">
-      <h2 class="has-text-centered title is-3">Latest Stories</h2>
+        <h2 class="has-text-centered title is-3">Stories</h2>
           <% @stories.each do |story| %>
-             <p class="subtitle is-5">
-             <%= link_to story.title, story %>
-             </p>
-             <p>
-             <%= story.body %>
-             </p><br/>
-             <p>Written by:</p>
-                <% if user_signed_in? %>
-                  <%= story.user.name %>
-                  <div class="is-italic">
-                    <%= story.user.username %>
-                  </div><br/>
-                <% else %>
-                  <p class="subtitle is-6">Log in to see who wrote this story</p><br/>
-                <% end %> 
+            <p class="subtitle is-5">
+              <%= link_to story.title, story %>
+            </p>
+            <p>
+              <%= simple_format story.body.gsub("\n", " ") %>
+            </p><br/>
+            <p>Written by:</p>
+              <% if user_signed_in? %>
+                <%= story.user.name %>
+                <div class="is-italic">
+                  <%= story.user.username %>
+                </div><br/>
+              <% else %>
+                <p class="subtitle is-6">Log in to see who wrote this story</p><br/>
+              <% end %> 
           <% end %>
-        
         <%= link_to "Write your own story", new_story_path %>
-        </div>
-
       </div>
     </div>
-  
+  </div>
 </section>
