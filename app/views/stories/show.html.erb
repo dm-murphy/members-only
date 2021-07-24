@@ -3,26 +3,49 @@
     <div class="columns is-centered is-variable is-6-desktop">
     <% if user_signed_in? %>
         <div class="column is-one-quarter">
+        <nav class="panel">
           <p class="panel-heading has-text-centered has-background-dark has-text-white">Author</p>
           <div class="panel-block has-background-warning">
           <div class="media-left">
           <figure class=" image is 64-64">
             <%= gravatar_image_tag(@story.user.email, size: 64, alt: @story.user.name) %>
           </figure>
-        </div>
+          </div>
           <p class="panel-heading has-text-left has-background-warning is-6">
             <%= @story.user.name %><br />
             <i><small><%= @story.user.username %></small></i>
           </p>
           </div>
+        </nav>
+          <p class="panel-heading has-text-centered has-background-dark has-text-white">Author's Stories</p>
+          <div class="panel-block has-background-warning">
+            <ul>
+            <% author_id = @story.user.id %>
+            <% @stories.order(created_at: :desc).each do |story| %>
+              <% if story.user.id == author_id %>
+               <li class="is-size-7"><%= link_to story.title, story %></li>
+              <% else %>
+              <% end %> 
+            <% end %>
+            </ul>
+          </div>
         </div>
       <% else %>
         <div class="column is-one-quarter ">
+        <nav class="panel">
           <p class="panel-heading has-text-centered has-background-dark has-text-white">Author</p>
           <div class="panel-block has-background-warning">
           <p class="panel-heading has-text-left has-background-warning title is-6">Log in to see author</p>
           </div>
+        </nav>
+        <nav class="panel">
+          <p class="panel-heading has-text-centered has-background-dark has-text-white">Other Stories</p>
+          <div class="panel-block has-background-warning">
+          <p class="panel-heading has-text-left has-background-warning title is-6">Log in for author's other stories</p>
+          </div>
+        </nav>
         </div>
+
       <% end %>
       <div class="column is-three-quarters has-background-white-ter">
         <h1 class="title has-text-centered">
