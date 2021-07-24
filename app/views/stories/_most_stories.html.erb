@@ -1,0 +1,15 @@
+<div class="panel">
+  <p class="panel-heading has-text-centered has-background-dark has-text-white">Most Stories</p>
+    <div class="panel-block has-background-warning">
+      <ul>
+        <% @user = User.all %>
+        <% @user = @user.sort_by { |user| user.stories.count } %>
+        <% @user.reverse_each do |user| %>
+          <li class="is-size-6">
+            <%= user.stories.count %>    
+            <%= user.username %>
+          </li>
+        <% end %>   
+      </ul>
+    </div>
+</div>
