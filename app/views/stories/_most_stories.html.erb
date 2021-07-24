@@ -6,8 +6,12 @@
         <% @user = @user.sort_by { |user| user.stories.count } %>
         <% @user.reverse_each do |user| %>
           <li class="is-size-6">
-            <%= user.stories.count %>    
-            <%= user.username %>
+            <%= user.stories.count %>
+            <% if user_signed_in? %>    
+              <%= user.username %>
+            <% else %>
+              <i>Log in to see username</i>
+            <% end %>
           </li>
         <% end %>   
       </ul>
