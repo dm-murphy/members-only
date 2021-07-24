@@ -12,36 +12,10 @@
           </div>
         </nav>
         <% end %>
-      
-        <p class="panel-heading has-text-centered has-background-dark has-text-white">Latest Stories</p>
-        <div class="panel-block has-background-warning">
-          <ul>
-            <% @stories.order(created_at: :desc).limit(4).each do |story| %>
-             <li class="is-size-7"><%= link_to story.title, story %></li>
-            <% end %>
-          </ul>
-        </div>
+        <%= render 'latest_stories' %>
       </div>
-      
       <div class="column is-three-quarters has-background-white-ter">
-        <h2 class="has-text-centered title is-3">Stories</h2>
-          <% @stories.each do |story| %>
-            <p class="subtitle is-5">
-              <%= link_to story.title, story %>
-            </p>
-            <p>
-              <%= simple_format story.body.gsub("\n", " ") %>
-            </p><br/>
-            <p class="is-italic">Written by:</p>
-              <% if user_signed_in? %>
-                <%= story.user.name %>
-                <div class="is-italic">
-                  <%= story.user.username %>
-                </div><br/>
-              <% else %>
-                <p class="has-text-weight-bold is-uppercase">Log in to see author</p><br/>
-              <% end %> 
-          <% end %>
+        <%= render 'stories_feed' %>
       </div>
     </div>
   </div>

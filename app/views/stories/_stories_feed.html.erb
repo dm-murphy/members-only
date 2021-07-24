@@ -1,0 +1,19 @@
+<h2 class="has-text-centered title is-3">Stories</h2>
+  <% @stories.each do |story| %>
+    <p class="subtitle is-5">
+      <%= link_to story.title, story %>
+    </p>
+    <p>
+      <%= simple_format story.body.gsub("\n", " ") %>
+    </p><br/>
+    <p class="is-italic">Written by:</p>
+      <% if user_signed_in? %>
+        <%= story.user.name %>
+        <div class="is-italic">
+          <%= story.user.username %>
+        </div><br/>
+      <% else %>
+        <p class="has-text-weight-bold is-uppercase">Log in to see author</p><br/>
+      <% end %> 
+  <% end %>
+  

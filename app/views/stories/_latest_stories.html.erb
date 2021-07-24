@@ -1,0 +1,9 @@
+<p class="panel-heading has-text-centered has-background-dark has-text-white">Latest Stories</p>
+  <div class="panel-block has-background-warning">
+    <ul>
+      <% @stories.order(created_at: :desc).limit(4).each do |story| %>
+        <li class="is-size-7"><%= link_to story.title, story %></li>
+      <% end %>
+    </ul>
+  </div>
+  
