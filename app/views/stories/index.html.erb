@@ -19,6 +19,7 @@
             <% @stories.order(created_at: :desc).limit(4).each do |story| %>
              <li class="is-size-7"><%= link_to story.title, story %></li>
             <% end %>
+          </ul>
         </div>
       </div>
       
