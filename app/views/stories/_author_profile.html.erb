@@ -1,0 +1,28 @@
+<div class="panel">
+  <p class="panel-heading has-text-centered has-background-dark has-text-white">Author</p>
+  <div class="panel-block has-background-warning">
+    <div class="media-left">
+      <figure class=" image is 64-64">
+        <%= gravatar_image_tag(@story.user.email, size: 64, alt: @story.user.name) %>
+      </figure>
+    </div>
+    <p class="panel-heading has-text-left has-background-warning is-6">
+      <%= @story.user.name %><br />
+      <i><small><%= @story.user.username %></small></i>
+    </p>
+  </div>
+</div>
+<div class="panel">
+  <p class="panel-heading has-text-centered has-background-dark has-text-white">Author's Stories</p>
+    <div class="panel-block has-background-warning">
+      <ul>
+        <% author_id = @story.user.id %>
+        <% @stories.order(created_at: :desc).each do |story| %>
+          <% if story.user.id == author_id %>
+            <li class="is-size-7"><%= link_to story.title, story %></li>
+          <% end %> 
+        <% end %>
+      </ul>
+    </div>
+</div>
+    
