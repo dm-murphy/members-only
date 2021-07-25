@@ -5,12 +5,12 @@
         <% if user_signed_in? %>
           <%= render 'user_profile' %>
         <% else %>
-        <nav class="panel">
+        <div class="panel">
           <p class="panel-heading has-text-centered has-background-dark has-text-white">Writer Profile</p>
           <div class="panel-block has-background-warning">
             <p class="panel-heading has-text-centered has-background-warning title is-6">Log in to see profile</p>
           </div>
-        </nav>
+        </div>
         <% end %>
         <%= render 'latest_stories' %>
         <%= render 'most_stories' %>

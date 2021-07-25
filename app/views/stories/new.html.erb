@@ -1,23 +1,25 @@
 <div class="section">
   <div class="container">
     <div class="columns is-centered is-variable is-6-desktop">
-    <% if user_signed_in? %>
-        <%= render 'profile' %>
-      <% else %>
-        <div class="column is-one-quarter">
-          <p class="panel-heading has-text-centered has-background-dark has-text-white">Writer Profile</p>
-          <div class="panel-block has-background-warning">
-          <p class="panel-heading has-text-centered has-background-warning title is-6">Log in to see profile</p>
+      <div class="column is-one-quarter">
+        <% if user_signed_in? %>
+          <%= render 'user_profile' %>
+        <% else %>
+          <div class="panel">
+            <p class="panel-heading has-text-centered has-background-dark has-text-white">Writer Profile</p>
+            <div class="panel-block has-background-warning">
+            <p class="panel-heading has-text-centered has-background-warning title is-6">Log in to see profile</p>
+            </div>
           </div>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
       <div class="column is-three-quarters">
         <h1 class="title">Share a Story</h1>
           <%= render 'form' %>
       </div>
-   </div>
-   </div>
+    </div>
   </div>
+</div>
 <nav class="navbar is-fixed-bottom">
   <div class="navbar-menu">
     <div class="navbar-item">
