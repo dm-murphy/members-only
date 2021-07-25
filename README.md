@@ -1,8 +1,8 @@
-# README
+# Writers Only (Members Only)
 
-Members Only is a authentication project in the Rails curriculum from The Odin Project. You can learn more about the assignment [here](https://www.theodinproject.com/paths/full-stack-ruby-on-rails/courses/ruby-on-rails/lessons/authentication#your-task-1).
+This app is based on the Members Only authentication project from The Odin Project's Rails curriculum. The project focuses on the use of the Devise ruby gem in order to implement authentication for users. You can learn more about the assignment [here](https://www.theodinproject.com/paths/full-stack-ruby-on-rails/courses/ruby-on-rails/lessons/authentication#your-task-1).
 
-In this app, members can write anonymous posts. Only members who are logged into the clubhouse can see the author of a post. Outside the clubhouse the stories are visible but author names are not.
+In this app, Writers Only, anyone can view the stories that have been posted, but only logged in members can see the author names and view profiles.
 
 * Ruby version: 2.7.2
 
