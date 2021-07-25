@@ -4,6 +4,8 @@ This app is based on the Members Only authentication project from The Odin Proje
 
 In this app, Writers Only, anyone can view the stories that have been posted, but only logged in members can see the author names and view profiles.
 
+Check out a live preview deployed to Heroku. It might take a few to wake from sleep: https://whispering-spire-62153.herokuapp.com/
+
 * Ruby version: 2.7.2
 
 * Rails version: 6.1.4
