@@ -35,6 +35,9 @@ Check out a live preview deployed to Heroku. It might take a few to wake from sl
 $ git clone git@github.com:dm-murphy/members-only.git
 $ bundle install
 $ rails db:migrate
+
+# Note: If Webpacker throws a MissingEntryError try the following command:
+$ rake webpacker:install
 ```
 
 ## What Was Learned
